@@ -2,6 +2,7 @@ using la_mia_pizzeria_crud_mvc.CustomLogger;
 using pizzeria_mvc.Database;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//codice per json in modo che ignori le dipendenza cicliche di eventuali relazioni N:N o 1:N
+builder.Services.AddControllers().AddJsonOptions(x =>
+x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 // implementazione Dipendency injection del DB + Custom FileLogger
 builder.Services.AddScoped<ICustomLog, CustomFileLogger>();

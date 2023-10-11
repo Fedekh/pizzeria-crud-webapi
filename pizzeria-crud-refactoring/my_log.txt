@@ -55,3 +55,22 @@
 [10-10-2023 23:47:31] LOG L'utente è arrivato sta visualizzando i dettagli di prima
 [10-10-2023 23:47:32] LOG L'utente è arrivato nel admins index
 [11-10-2023 22:42:18] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:00:35] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:02:27] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:05:40] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:10:59] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:20:43] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:22:42] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:35:36] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:37:32] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:37:34] LOG L'utente vuole modificare prima
+[11-10-2023 23:38:24] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:41:29] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:43:05] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:43:47] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:47:45] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:53:04] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:53:31] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:54:20] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:54:53] LOG L'utente è arrivato nel admins index
+[11-10-2023 23:55:37] LOG L'utente è arrivato nel admins index
