@@ -3,6 +3,8 @@ using pizzeria_mvc.Database;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
+using pizzeria_crud_refactoring.Database.Repository;
+using pizzeria_crud_refactoring.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,7 @@ x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 // implementazione Dipendency injection del DB + Custom FileLogger
 builder.Services.AddScoped<ICustomLog, CustomFileLogger>();
 builder.Services.AddScoped<PizzaContext, PizzaContext>();
+builder.Services.AddScoped<IRepositoryPizza, RepositoryPizza>();
 
 
 var app = builder.Build();

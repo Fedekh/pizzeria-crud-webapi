@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.EntityFrameworkCore;
+using pizzeria_crud_refactoring.Database.Repository;
 using pizzeria_crud_refactoring.Models;
 using pizzeria_mvc.Database;
 
@@ -11,11 +12,11 @@ namespace pizzeria_crud_refactoring.Controllers.Api
     [ApiController]
     public class PizzaController : ControllerBase
     {
-        private PizzaContext _db;
+        private IRepositoryPizza _repoPizza;
 
-        public PizzaController(PizzaContext db)
+        public PizzaController(IRepositoryPizza repo)
         {
-            _db = db;
+            _repoPizza = repo;
         }
 
         [HttpGet]
@@ -23,35 +24,23 @@ namespace pizzeria_crud_refactoring.Controllers.Api
         {
           //cosi uscirebbe un ciclo infinito, che c# riesce a gestire perche usa puntatori, json no, occorre evitare ricorrenze cicliche
           // per evitarlo occorre aggiungere una stringa in Program.cs
-          List<Pizza> pizzas = _db.Pizza
-                                        .Include(p => p.Ingredients)
-                                        .Include(P => P.Category)
-                                        .ToList();
+          List<Pizza> pizzas = _repoPizza.GetPizzas();
            return Ok(pizzas);
         }
 
         [HttpGet]
-        public IActionResult SearchPizzas(string? search)
+        public IActionResult GetPizzasByName(string? search)
         {
             if (search == null) return BadRequest(new { Message = "non hai inserito nessuna stringa di ricerca" });
 
-            List<Pizza> foundedPizzas = _db.Pizza
-                                                .Where(p => p.Name.ToLower().Contains(search.ToLower()))
-                                                .Include(p => p.Ingredients)
-                                                .Include(P => P.Category)
-                                                .ToList();
-
+            List<Pizza> foundedPizzas = _repoPizza.GetPizzasByName(search);
             return Ok(foundedPizzas);
         }
 
         [HttpGet("{id}")]
-        public IActionResult SearchbyId(long id)
+        public IActionResult GetPizzaById(long id)
         {
-            Pizza? pizza = _db.Pizza
-                                    .Where(p=>p.Id == id)
-                                    .Include(p=>p.Ingredients)
-                                    .Include(P=>P.Category)
-                                    .FirstOrDefault();
+            Pizza? pizza = _repoPizza.GetPizzaById(id);
            
             if (pizza == null) return NotFound();
 
@@ -63,9 +52,12 @@ namespace pizzeria_crud_refactoring.Controllers.Api
         {
             try
             {
-                _db.Pizza.Add(pizza);
-                _db.SaveChanges();
-                return Ok(pizza);
+                bool result = _repoPizza.Create(pizza);
+                if (result) { return Ok(); }
+                else
+                {
+                    return BadRequest();
+                }
             }
             catch (Exception ex)
             {
@@ -77,37 +69,21 @@ namespace pizzeria_crud_refactoring.Controllers.Api
         [HttpPut("{id}")]
         public IActionResult Update(long id,[FromBody] Pizza pizza)
         {
-            Pizza? pizzaEdit = _db.Pizza
-                                    .Where(p => p.Id == id)
-                                    .FirstOrDefault();
+            bool result = _repoPizza.Update(id, pizza);
 
-
-            if (pizzaEdit == null) return NotFound();
-            
-                pizzaEdit.Name = pizza.Name;
-                pizzaEdit.Price = pizza.Price;
-                pizzaEdit.Description = pizza.Description;
-                pizzaEdit.Photo = pizza.Photo;
-
-                _db.SaveChanges();
-                return Ok(pizzaEdit);
-
+            if (result) { return Ok(); }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-            Pizza? pizza = _db.Pizza
-                                   .Where(p => p.Id == id)
-                                   .Include(p => p.Ingredients)
-                                   .Include(P => P.Category)
-                                   .FirstOrDefault();
-
-            if (pizza == null) return NotFound();
-
-            _db.Remove(pizza);
-            _db.SaveChanges();
-            return Ok();
+            bool result = _repoPizza.Delete(id);
+            if (result) { return Ok(); }
+            return BadRequest();
         }
     }
 }

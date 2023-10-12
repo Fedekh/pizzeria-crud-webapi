@@ -29,7 +29,7 @@ namespace pizzeria_crud_refactoring.Controllers
         [HttpGet]
         public IActionResult Details(long id)
         {
-            Pizza pizza = _db.Pizza.Where(p => p.Id == id).Include(p => p.Category).Include(p => p.Ingredients).FirstOrDefault();
+            Pizza? pizza = _db.Pizza.Where(p => p.Id == id).Include(p => p.Category).Include(p => p.Ingredients).FirstOrDefault();
 
             if (pizza == null) return View("../NotFound");
             return View(pizza);
