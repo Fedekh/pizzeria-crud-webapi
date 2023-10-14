@@ -149,3 +149,28 @@
 [12-10-2023 17:40:57] LOG L'utente è arrivato nel admins index
 [12-10-2023 17:41:13] LOG L'utente è arrivato sta visualizzando i dettagli di DDDDDDDDDDDD
 [12-10-2023 17:41:35] LOG L'utente è arrivato sta visualizzando i dettagli di FFFFFFFFFFFFFFF
+[14-10-2023 09:23:33] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:31:36] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:31:47] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:31:59] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:32:26] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:35:03] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:37:08] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:37:19] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:37:46] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:37:48] LOG L'utente ha eliminato prima
+[14-10-2023 09:37:48] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:37:52] LOG L'utente ha eliminato asdd 
+[14-10-2023 09:37:52] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:37:54] LOG L'utente ha eliminato DAJE
+[14-10-2023 09:37:54] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:38:19] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:38:21] LOG L'utente ha eliminato DAJEsddsd
+[14-10-2023 09:38:21] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:38:22] LOG L'utente ha eliminato DAJEsddsd
+[14-10-2023 09:38:22] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:38:30] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:38:58] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:39:06] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:39:55] LOG L'utente è arrivato nel admins index
+[14-10-2023 09:41:05] LOG L'utente è arrivato nel admins index
